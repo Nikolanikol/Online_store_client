@@ -13,7 +13,11 @@ const TypeBar = observer( () => {
 
                 return(
 
-                    <ListGroup.Item onClick={()=>device.setSelectedType(type)} key={type.name} variant='secondary' action href={`#link1 + ${i}`}>
+                    <ListGroup.Item 
+                    onClick={()=>device.setSelectedType(type)} 
+                    key={type.name} 
+                    variant='secondary'
+                     action href={`#link1 + ${i}`}>
                         {type.name}
                     </ListGroup.Item>
                 )

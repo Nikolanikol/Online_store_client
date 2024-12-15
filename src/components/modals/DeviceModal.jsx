@@ -27,6 +27,8 @@ const DeviceModal = ({show,onHide}) => {
     const [file, setFile] = useState(null)
     const [brandName, setBrandName] = useState('')
     const [typeName, setTypeName] = useState('')
+    const [selectedBrand, setSelectedBrand] = useState(null)
+    const [selectedType, setSelectedType] = useState(null)
 
     const selectFile = e =>{
         console.log(e.target.files[0])
@@ -35,11 +37,10 @@ const DeviceModal = ({show,onHide}) => {
 
     const addDevice = ()=>{
         const formData = new FormData()
-        console.log(info)
         formData.append('name', name)
         formData.append('price', String(price))
-        formData.append('brandId', 1)
-        formData.append('typeId', 1)
+        formData.append('brandId', selectedBrand)
+        formData.append('typeId', selectedType)
         formData.append('info', JSON.stringify(info))
         formData.append('img', file)
 
@@ -67,7 +68,10 @@ const DeviceModal = ({show,onHide}) => {
                     {
                         device.types.map(type=>
                             <Dropdown.Item 
-                            onClick={()=>setTypeName(type.name)} 
+                            onClick={()=>{
+                                setTypeName(type.name)
+                                setSelectedType(type.id)
+                            }} 
                             key={type.id}
                         >{type.name}</Dropdown.Item>
                         )
@@ -81,7 +85,10 @@ const DeviceModal = ({show,onHide}) => {
                         {
                             device.brand.map(brand=>
                                 <Dropdown.Item 
-                                onClick={()=>setBrandName(brand.name)} 
+                                onClick={()=>{
+                                    setBrandName(brand.name)
+                                    setSelectedBrand(brand.id)
+                                }} 
                                 key={brand.id}
                             >{brand.name}</Dropdown.Item>
                             )

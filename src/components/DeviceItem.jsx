@@ -9,12 +9,12 @@ import { DEVICE_ROUTE } from '../utils/consts';
 const DeviceItem = ({device}) => {
     const navigate = useNavigate()
   return (
-    <Col md={3} >
+    <Col md={3} style={{ display: 'flex', justifyContent: 'center'}}>
         <Card 
-            style={{width : 150, cursor : 'pointer', padding: 5}}
+            style={{ cursor : 'pointer', padding: 5,}}
             onClick={()=>navigate(DEVICE_ROUTE + '/' + device.id)}
         >
-            <Image width={150} height={150} src={process.env.REACT_APP_API_URL+ device.img} ></Image>
+            <Image style={{padding: 15}} src={process.env.REACT_APP_API_URL+ device.img} ></Image>
             <div>
                 <div className='text-black-50' style={{textAlign : 'center'}}> BrandName</div>
 

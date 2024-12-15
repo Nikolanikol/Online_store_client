@@ -50,8 +50,8 @@ const Auth =observer( () => {
             className='d-flex justify-content-center align-items-center'>
 
                 <Card style={{width: 600, padding: 20}}>
-                    <h2 className='m-auto'>{isLogin ?  'Authorization' : 'Registration' }</h2>
-
+                    <h2 className='m-auto '>{isLogin ?  'Authorization' : 'Registration' }</h2>
+                    <hr className='mb-4 mt-4'/>
                     <Form className='d-flex row-gap-4 flex-column'>
                         <Form.Control value={email} onChange={(e)=>setEmail(e.target.value)} className='' placeholder='Enter email'></Form.Control>
                         <Form.Control value={password} onChange={(e)=>setPassword(e.target.value)}className='' placeholder='Enter password'></Form.Control>
