@@ -9,6 +9,14 @@ export const createType = async(type) =>{
 
 export const fetchTypes = async() =>{
     const {data} = await $host.get('api/type')   
+    if(!data){
+        data = [
+            {
+                id : 333, name : 'apple',
+                id : 334, name : 'apple',
+            }
+        ]
+    }
     return data
 }
 
@@ -18,6 +26,14 @@ export const createBrand = async(brand) =>{
 }
 export const fetchBrand = async() =>{
     const {data} = await $host.get('api/brand')   
+    if(!data){
+        data = [
+            {
+                id : 333, name : 'apple',
+                id : 334, name : 'apple',
+            }
+        ]
+    }
     return data
 }
 
