@@ -14,7 +14,7 @@ const DeviceItem = ({device}) => {
             style={{ cursor : 'pointer', padding: 5,}}
             onClick={()=>navigate(DEVICE_ROUTE + '/' + device.id)}
         >
-            <Image style={{padding: 15}} src={process.env.REACT_APP_API_URL+ device.img} ></Image>
+            <Image style={{padding: 15}} src={process.env.REACT_APP_API_URL+'/'+ device.img} ></Image>
             <div>
                 <div className='text-black-50' style={{textAlign : 'center'}}> BrandName</div>
 

@@ -14,7 +14,10 @@ const Shop = observer(  () => {
     const {device} = useContext(Context)
     useEffect(()=>{
         fetchTypes()
-            .then(data=>device.setType(data))
+            .then(data=>{
+                console.log(data)
+                return device.setType(data)
+            })
         fetchBrand()
             .then(data=>device.setBrand(data))
         fetchDevice(null, null, 1, 2)
