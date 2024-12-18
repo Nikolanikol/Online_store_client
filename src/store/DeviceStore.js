@@ -9,7 +9,10 @@ export default class DeviceStore{
         ]
         this._selectedType = {}
         this._selectedBrand = {}
+
         this._sortedDeviceList = []
+
+
         this._page = 1
         this._totalCount = 0
         this._limit = 3
@@ -43,14 +46,15 @@ export default class DeviceStore{
         console.log(toJS(this._selectedBrand))
     }
     setSortedDeviceList(brandId, typeId){
-        console.log(brandId)
-        console.log(typeId)
         let sortedList = []
-        if(brandId){
-            sortedList = this._devices.filter(item=>item.brandId !== brandId)
+        if(brandId ){
+            sortedList = this._devices.filter(item=>item.brandId == brandId)
         }
         if(typeId){
-            sortedList = sortedList.filter(item=>item.typeId !== typeId)
+            sortedList = this._devices.filter(item=>item.typeId == typeId)
+        }
+        if(typeId && brandId){
+            sortedList = this._devices.filter(item=>item.typeId == typeId && item.brandId == brandId)
         }
         this._sortedDeviceList = sortedList
 
